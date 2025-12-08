@@ -1,0 +1,13 @@
+spring:
+  data:
+    redis:
+      # Docker容器里使用容器名连接 hxl-redis
+      host: ${REDIS_IP:127.0.0.1}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:hxl0321731X}
+      lettuce:
+        pool:
+          max-active: 5
+          max-wait: -1ms
+          max-idle: 5
+          min-idle: 0

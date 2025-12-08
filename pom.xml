@@ -17,6 +17,7 @@
         <module>00-SpringCommon</module>
         <module>03-MyBatis</module>
         <module>05-Docker</module>
+        <module>06-MultiModuleDockerDeploy</module>
     </modules>
 
     <properties>

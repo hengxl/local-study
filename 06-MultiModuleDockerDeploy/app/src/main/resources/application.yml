@@ -1,0 +1,13 @@
+server:
+  port: ${APP_PORT:8080}
+
+spring:
+  profiles:
+    # TODO: 实际生产可以用环境变量替换成生产模式下的配置（例如用.env文件替换为dm数据库！）
+    active: mysql, redis
+  application:
+    name: hxl-app
+
+# mybatis 配置
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
