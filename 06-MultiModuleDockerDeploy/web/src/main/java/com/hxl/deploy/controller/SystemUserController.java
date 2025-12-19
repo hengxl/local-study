@@ -34,8 +34,11 @@ public class SystemUserController {
     public User getSystemUser(@RequestParam(value = "name", required = true) String username) {
         User user = AppCache.get(AppConst.SYSTEM_USER_PREFIX, username, User.class);
         if (Objects.isNull(user)) {
+            log.info("用户缓存: {}未命中，正在查询数据库...", username);
             user = userService.getUserByName(username);
             Assert.isTrue(Objects.nonNull(user), AppConst.USER_NOT_EXISTS);
+            AppCache.put(AppConst.SYSTEM_USER_PREFIX, username, user);
+            log.info("用户缓存: {} 已写入...", username);
         }
         return user;
     }
